@@ -1,1 +1,4 @@
 *.csv
+
+# Secret configuration
+*.secret.exs

@@ -1,9 +1,9 @@
-defmodule GeoIP.MixProject do
+defmodule Api.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :geoip,
+      app: :api,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
@@ -14,20 +14,18 @@ defmodule GeoIP.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {Api.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:flow, "~> 1.0"},
-      {:ecto, "~> 3.10"},
-      {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
-      {:nimble_csv, "~> 1.1"},
-      {:ecto_network, "~> 1.3.0"},
-
+      {:geoip, path: "../geoip"},
+      {:jason, "~> 1.4"},
+      {:plug, "~> 1.14"},
+      {:plug_cowboy, "~> 2.0"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]

@@ -9,6 +9,8 @@ defmodule GeoIP do
   defmodule LookupResponse do
     @moduledoc false
 
+    @derive Jason.Encoder
+
     @type t() :: %LookupResponse{
       ip_address: String.t(),
       country_code: String.t(),
@@ -24,6 +26,8 @@ defmodule GeoIP do
   defmodule ImportResponse do
     @moduledoc false
 
+    @derive Jason.Encoder
+
     @type t() :: %ImportResponse{
       total: non_neg_integer(),
       imported: non_neg_integer(),
@@ -33,8 +37,8 @@ defmodule GeoIP do
     defstruct [:total, :imported, :discarded]
   end
 
-  @spec loopup(String.t()) :: LookupResponse.t() | nil
-  def loopup(ip_address) do
+  @spec lookup(String.t()) :: LookupResponse.t() | nil
+  def lookup(ip_address) do
     Location
     |> Repo.get_by(ip_address: ip_address)
     |> lookup_response_from_location()

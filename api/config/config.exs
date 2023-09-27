@@ -1,7 +1,5 @@
 import Config
 
-config :geoip, ecto_repos: [GeoIP.Repo]
-
 # Import environment specific config.
 import_config "#{config_env()}.exs"
 
