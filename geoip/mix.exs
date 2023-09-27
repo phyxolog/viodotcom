@@ -27,7 +27,6 @@ defmodule GeoIP.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:nimble_csv, "~> 1.1"},
       {:ecto_network, "~> 1.3.0"},
-
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]

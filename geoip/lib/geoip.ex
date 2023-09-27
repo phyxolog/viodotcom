@@ -12,13 +12,13 @@ defmodule GeoIP do
     @derive Jason.Encoder
 
     @type t() :: %LookupResponse{
-      ip_address: String.t(),
-      country_code: String.t(),
-      country: String.t(),
-      city: String.t(),
-      latitude: float(),
-      longitude: float()
-    }
+            ip_address: String.t(),
+            country_code: String.t(),
+            country: String.t(),
+            city: String.t(),
+            latitude: float(),
+            longitude: float()
+          }
 
     defstruct [:ip_address, :country_code, :country, :city, :latitude, :longitude]
   end
@@ -29,10 +29,10 @@ defmodule GeoIP do
     @derive Jason.Encoder
 
     @type t() :: %ImportResponse{
-      total: non_neg_integer(),
-      imported: non_neg_integer(),
-      discarded: non_neg_integer()
-    }
+            total: non_neg_integer(),
+            imported: non_neg_integer(),
+            discarded: non_neg_integer()
+          }
 
     defstruct [:total, :imported, :discarded]
   end
