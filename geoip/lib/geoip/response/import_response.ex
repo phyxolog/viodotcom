@@ -6,8 +6,9 @@ defmodule GeoIP.ImportResponse do
   @type t() :: %GeoIP.ImportResponse{
           total: non_neg_integer(),
           imported: non_neg_integer(),
-          discarded: non_neg_integer()
+          discarded: non_neg_integer(),
+          elapsed_ms: non_neg_integer()
         }
 
-  defstruct [:total, :imported, :discarded]
+  defstruct [:total, :imported, :discarded, :elapsed_ms]
 end

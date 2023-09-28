@@ -6,8 +6,8 @@ defmodule GeoIP do
     GeoIP.Lookuper.lookup(ip_address)
   end
 
-  @spec import!(String.t()) :: GeoIP.ImportResponse.t()
-  def import!(path) do
-    GeoIP.Importer.import!(path)
+  @spec import(String.t()) :: {:ok, GeoIP.ImportResponse.t()} | {:error, :enoent}
+  def import(path) do
+    GeoIP.Importer.import(path)
   end
 end
