@@ -34,10 +34,13 @@ defmodule GeoIP.Location do
     timestamps()
   end
 
+  @doc false
   def changeset(%Location{} = location, attrs \\ %{}) do
     location
     |> cast(attrs, @permitted)
     |> validate_required(@permitted)
+    |> validate_number(:latitude, greater_than: -90, less_than: 90)
+    |> validate_number(:longitude, greater_than: -180, less_than: 180)
     |> validate_length(:country_code, is: 2)
     |> validate_change(:country_code, :format, fn _, value ->
       if String.upcase(value) == value,
