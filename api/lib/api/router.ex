@@ -1,4 +1,6 @@
 defmodule Api.Router do
+  @moduledoc false
+
   use Plug.Router
 
   plug(Plug.Logger)

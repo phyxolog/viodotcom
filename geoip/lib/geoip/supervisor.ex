@@ -10,7 +10,6 @@ defmodule GeoIP.Supervisor do
   @impl true
   def init(_opts) do
     children = [
-      # Start the Ecto repository
       GeoIP.Repo
     ]
 
